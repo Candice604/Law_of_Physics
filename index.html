@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b1020" />
+  <meta name="description" content="Law of Physics — an interactive study of momentum and energy." />
+  <title>Law of Physics</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="intro.css" />
+  <link rel="stylesheet" href="refinements.css?v=concept-chapters-10" />
+</head>
+<body class="landing-active">
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Law of Physics home">
+      <span>LAW OF <strong>PHYSICS</strong></span>
+    </a>
+    <div class="status-pill"><span class="pulse"></span> LAB ONLINE</div>
+    <div class="score-box"><span>SCORE</span><strong id="total-score">0000</strong></div>
+  </header>
+
+  <main>
+    <section id="landing" class="landing view active">
+      <div class="landing-wordmark" aria-label="Law of Physics">
+        <span>Law of Physics</span>
+      </div>
+      <div class="landing-center">
+        <svg class="landing-logo" viewBox="0 0 300 420" xmlns="http://www.w3.org/2000/svg" aria-label="Animated Law of Physics logo">
+          <g class="loading-rotor">
+            <g class="loading-l loading-l-left"><path d="M 70 80 L 70 340 L 230 340" /></g>
+            <g class="loading-l loading-l-right"><path d="M 230 340 L 230 80 L 70 80" /></g>
+          </g>
+        </svg>
+        <div class="landing-name">Law of Physics</div>
+        <div class="landing-subtitle">
+          <span>You will find the seam.</span>
+          <span>Same formula. Different physics.</span>
+          <span>That is the law.</span>
+        </div>
+        <div class="landing-actions">
+          <div class="landing-preview">
+            <button data-open="home">Preview</button>
+            <div class="mascot-shelf" aria-label="Collected mascots">
+              <img src="assets/mascots/turtle.png" data-collected-mascot="turtle" alt="Collected turtle mascot" hidden />
+              <img src="assets/mascots/owl.png" data-collected-mascot="owl" alt="Collected owl mascot" hidden />
+              <img src="assets/mascots/cat.png" data-collected-mascot="cat" alt="Collected cat mascot" hidden />
+            </div>
+          </div>
+          <button data-open="catalog">Begin</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="catalog" class="catalog view">
+      <div class="catalog-wordmark">Law of Physics</div>
+      <button class="catalog-back" data-back>Back</button>
+      <div class="catalog-center">
+        <div class="catalog-layout">
+          <div class="catalog-loop">
+            <ol>
+              <li><button data-open="universal-gravitation">Universal Gravitation</button><span class="catalog-definition">Mutual attraction between masses</span></li>
+              <li><button data-open="gravitational-field">Gravitational Field</button><span class="catalog-definition">Acceleration caused by gravity at a point</span></li>
+              <li><button data-open="gravitational-potential">Gravitational Potential</button><span class="catalog-definition">Work from infinity for each kilogram</span></li>
+              <li><button data-open="gravitational-energy">Gravitational Potential Energy</button><span class="catalog-definition">Position-dependent energy in a gravitational field</span></li>
+            </ol>
+          </div>
+          <div class="catalog-symbol">
+            <img src="assets/infinity-source.png" alt="Infinity symbol" />
+          </div>
+          <div class="catalog-loop">
+            <ol>
+              <li><button data-open="coulomb-force">Coulomb Force</button><span class="catalog-definition">Attraction or repulsion between charges</span></li>
+              <li><button data-open="electric-field">Electric Field</button><span class="catalog-definition">Force direction on a positive test charge</span></li>
+              <li><button data-open="electric-potential">Electric Potential</button><span class="catalog-definition">Work from infinity for each coulomb</span></li>
+              <li><button data-open="electric-energy">Electric Potential Energy</button><span class="catalog-definition">Position-dependent energy in an electric field</span></li>
+            </ol>
+          </div>
+        </div>
+        <div class="catalog-tagline">Explore the magical coincedence of nature.</div>
+      </div>
+    </section>
+
+    <section id="universal-gravitation" class="force-chapter view" data-force-kind="gravity" data-stage="0">
+      <div class="chapter-heading"><span>Law of Physics</span><h2>Universal Gravitation</h2></div>
+      <button class="chapter-back" data-open="catalog">Back</button>
+      <div class="chapter-shell">
+        <canvas id="gravity-canvas" aria-label="A mass m is joined by a mass 2m, revealing their mutual gravitational attraction"></canvas>
+        <div class="force-law">
+          <div class="force-formula"><i>F</i> = <i>G</i> <span class="formula-fraction"><span><i>m</i><sub>1</sub><i>m</i><sub>2</sub></span><span><i>r</i><sup>2</sup></span></span></div>
+          <div class="force-constant"><i>G</i> = 6.67430 × 10<sup>−11</sup> N·m<sup>2</sup>·kg<sup>−2</sup></div>
+          <div class="constant-note"><i>G</i> is measured from nature.</div>
+        </div>
+      </div>
+      <button class="chapter-replay" data-replay-force="universal-gravitation">Click to Replay</button>
+    </section>
+
+    <section id="coulomb-force" class="force-chapter view" data-force-kind="coulomb" data-stage="0">
+      <div class="chapter-heading"><span>Law of Physics</span><h2>Coulomb Force</h2></div>
+      <button class="chapter-back" data-open="catalog">Back</button>
+      <div class="chapter-shell">
+        <canvas id="coulomb-canvas" aria-label="A charge q is joined by a charge 2q, revealing their mutual electrostatic repulsion"></canvas>
+        <button class="direction-control" id="coulomb-direction" type="button" aria-pressed="false">Change Direction</button>
+        <div class="force-law">
+          <div class="force-formula"><i>F</i> = <i>k</i> <span class="formula-fraction"><span>|<i>q</i><sub>1</sub><i>q</i><sub>2</sub>|</span><span><i>r</i><sup>2</sup></span></span></div>
+          <div class="force-constant"><i>k</i> = 8.98755 × 10<sup>9</sup> N·m<sup>2</sup>·C<sup>−2</sup></div>
+          <div class="constant-note"><i>k</i> is measured from nature.</div>
+        </div>
+      </div>
+      <button class="chapter-replay" data-replay-force="coulomb-force">Click to Replay</button>
+    </section>
+
+    <section id="gravitational-potential" class="force-chapter concept-chapter view" data-concept="gravity-potential" data-stage="0">
+      <div class="chapter-heading"><span>Law of Physics</span><h2>Gravitational Potential</h2><p class="chapter-meta">Work done from infinity for each kilogram · Φ · J·kg<sup>−1</sup></p></div>
+      <button class="chapter-back" data-open="catalog">Back</button>
+      <div class="chapter-shell concept-shell">
+        <canvas aria-label="A test point moves through concentric gravitational equipotential circles"></canvas>
+        <div class="force-law concept-law">
+          <div class="force-formula">Φ = −<span class="formula-fraction"><span><i>F</i></span><span><i>m</i></span></span> × <i>r</i></div>
+          <div class="force-constant concept-equation">= −<i>g</i> × <i>r</i> = −<i>G</i><span class="formula-fraction"><span><i>M</i></span><span><i>r</i></span></span></div>
+        </div>
+      </div>
+      <button class="chapter-replay" data-replay-concept="gravitational-potential">Click to Replay</button>
+    </section>
+
+    <section id="gravitational-field" class="force-chapter concept-chapter view" data-concept="gravity-field" data-stage="0">
+      <div class="chapter-heading"><span>Law of Physics</span><h2>Gravitational Field</h2><p class="chapter-meta">Acceleration caused by gravity · <i>g</i> · N·kg<sup>−1</sup></p></div>
+      <button class="chapter-back" data-open="catalog">Back</button>
+      <div class="chapter-shell concept-shell">
+        <canvas aria-label="Radial gravitational field lines point inward while a test mass approaches"></canvas>
+        <div class="force-law concept-law">
+          <div class="force-formula"><i>F</i> = <i>mg</i></div>
+          <div class="force-constant concept-equation"><i>g</i> = <i>G</i><span class="formula-fraction"><span><i>M</i></span><span><i>r</i><sup>2</sup></span></span></div>
+        </div>
+      </div>
+      <button class="chapter-replay" data-replay-concept="gravitational-field">Click to Replay</button>
+    </section>
+
+    <section id="gravitational-energy" class="force-chapter concept-chapter view" data-concept="gravity-energy" data-stage="0">
+      <div class="chapter-heading"><span>Law of Physics</span><h2>Gravitational Potential Energy</h2><p class="chapter-meta">Energy due to position in a gravitational field · <i>U</i> · J</p></div>
+      <button class="chapter-back" data-open="catalog">Back</button>
+      <div class="chapter-shell concept-shell">
+        <canvas aria-label="Two masses approach and gravitational potential energy becomes more negative"></canvas>
+        <div class="force-law concept-law">
+          <div class="force-formula"><i>U</i> = <i>m</i>Φ = −<i>G</i><span class="formula-fraction"><span><i>Mm</i></span><span><i>r</i></span></span></div>
+        </div>
+      </div>
+      <button class="chapter-replay" data-replay-concept="gravitational-energy">Click to Replay</button>
+    </section>
+
+    <section id="electric-potential" class="force-chapter concept-chapter view" data-concept="electric-potential" data-stage="0">
+      <div class="chapter-heading"><span>Law of Physics</span><h2>Electric Potential</h2><p class="chapter-meta">Work done from infinity for each coulomb · <i>V</i> · V</p></div>
+      <button class="chapter-back" data-open="catalog">Back</button>
+      <div class="chapter-shell concept-shell">
+        <canvas aria-label="A test point moves through concentric electric equipotential circles"></canvas>
+        <div class="force-law concept-law">
+          <div class="force-formula"><i>V</i> = <span class="formula-fraction"><span><i>F</i></span><span><i>q</i></span></span> × <i>r</i></div>
+          <div class="force-constant concept-equation">= <i>E</i> × <i>r</i> = <i>k</i><span class="formula-fraction"><span><i>q</i><sub>0</sub></span><span><i>r</i></span></span></div>
+        </div>
+      </div>
+      <button class="chapter-replay" data-replay-concept="electric-potential">Click to Replay</button>
+    </section>
+
+    <section id="electric-field" class="force-chapter concept-chapter view" data-concept="electric-field" data-stage="0">
+      <div class="chapter-heading"><span>Law of Physics</span><h2>Electric Field</h2><p class="chapter-meta">Force acting on a positive test charge · <i>E</i> · N·C<sup>−1</sup></p></div>
+      <button class="chapter-back" data-open="catalog">Back</button>
+      <div class="chapter-shell concept-shell">
+        <canvas aria-label="Radial electric field lines point outward while a positive test charge approaches"></canvas>
+        <div class="force-law concept-law">
+          <div class="force-formula"><i>F</i> = <i>qE</i></div>
+          <div class="force-constant concept-equation"><i>E</i> = <i>k</i><span class="formula-fraction"><span><i>q</i><sub>0</sub></span><span><i>r</i><sup>2</sup></span></span></div>
+        </div>
+      </div>
+      <button class="chapter-replay" data-replay-concept="electric-field">Click to Replay</button>
+    </section>
+
+    <section id="electric-energy" class="force-chapter concept-chapter view" data-concept="electric-energy" data-stage="0">
+      <div class="chapter-heading"><span>Law of Physics</span><h2>Electric Potential Energy</h2><p class="chapter-meta">Energy due to a charge’s position in an electric field · <i>U</i> · J</p></div>
+      <button class="chapter-back" data-open="catalog">Back</button>
+      <div class="chapter-shell concept-shell">
+        <canvas aria-label="Two like charges approach and electric potential energy increases"></canvas>
+        <div class="force-law concept-law">
+          <div class="force-formula"><i>U</i> = <i>qV</i> = <i>k</i><span class="formula-fraction"><span><i>q</i><sub>0</sub><i>q</i></span><span><i>r</i></span></span></div>
+        </div>
+      </div>
+      <button class="chapter-replay" data-replay-concept="electric-energy">Click to Replay</button>
+    </section>
+
+    <section id="home" class="intro view">
+      <div class="wordmark" aria-label="Law of Physics">
+        <span>Law of Physics</span>
+      </div>
+      <canvas id="intro-canvas" aria-label="Elastic collision study"></canvas>
+      <div class="live-values" aria-live="polite">
+        <span>m<sub>A</sub> = 2.00 kg</span>
+        <span>m<sub>B</sub> = 4.00 kg</span>
+        <span id="intro-va">v<sub>A</sub> = +4.00 m·s⁻¹</span>
+        <span id="intro-vb">v<sub>B</sub> = 0.00 m·s⁻¹</span>
+        <span id="intro-p">Σp = 8.00 kg·m·s⁻¹</span>
+        <span id="intro-ek">ΣE<sub>k</sub> = 16.00 J</span>
+      </div>
+      <div class="conservation-panel">
+        <div class="collision-type"><strong>Elastic Collision:</strong><span>A collision in which both momentum and kinetic energy are conserved.</span></div>
+        <div class="conservation-laws">
+          <div><strong>Momentum Conservation</strong><span>m<sub>A</sub>v<sub>A</sub> + m<sub>B</sub>v<sub>B</sub> = m<sub>A</sub>v′<sub>A</sub> + m<sub>B</sub>v′<sub>B</sub></span></div>
+          <div><strong>Kinetic Energy Conservation</strong><span>½m<sub>A</sub>v<sub>A</sub>² + ½m<sub>B</sub>v<sub>B</sub>² = ½m<sub>A</sub>v′<sub>A</sub>² + ½m<sub>B</sub>v′<sub>B</sub>²</span></div>
+        </div>
+      </div>
+      <button class="continue" data-open="collision-quiz">Click to Continue</button>
+    </section>
+
+    <section id="collision-quiz" class="quiz-page view">
+      <div class="quiz-wordmark"><span>Law of Physics</span></div>
+      <button class="quiz-back" data-back>Back</button>
+      <div class="quiz-shell">
+        <p class="quiz-kicker">Elastic Collision · Question 01</p>
+        <h2>Find the mass ratio.</h2>
+        <div class="quiz-demo" aria-label="Animated elastic collision: A moves right, collides with stationary B, then A stops and B moves right">
+          <canvas id="quiz-canvas"></canvas>
+        </div>
+        <p class="quiz-prompt">On a smooth horizontal surface, ball A of mass <i>m</i><sub>1</sub> moves to the right with speed <i>v</i><sub>0</sub> and undergoes a head-on elastic collision with a stationary ball B of mass <i>m</i><sub>2</sub>. After the collision, ball A comes to rest.</p>
+        <p class="quiz-question">What is <i>m</i><sub>1</sub> : <i>m</i><sub>2</sub>?</p>
+        <div class="quiz-options" role="group" aria-label="Answer choices">
+          <button class="quiz-option" data-answer="1:2"><span>A</span>1 : 2</button>
+          <button class="quiz-option" data-answer="1:1" data-correct="true"><span>B</span>1 : 1</button>
+          <button class="quiz-option" data-answer="2:1"><span>C</span>2 : 1</button>
+          <button class="quiz-option" data-answer="3:1"><span>D</span>3 : 1</button>
+        </div>
+        <div class="quiz-feedback" id="quiz-feedback" aria-live="polite" hidden></div>
+        <button class="quiz-next" data-open="collision-question-2">Next Question →</button>
+      </div>
+    </section>
+
+    <section id="collision-question-2" class="quiz-page view">
+      <div class="quiz-wordmark"><span>Law of Physics</span></div>
+      <button class="quiz-back" data-back>Back</button>
+      <div class="quiz-shell">
+        <p class="quiz-kicker">Collision Analysis · Question 02</p>
+        <h2>Can these data be possible?</h2>
+        <div class="question-visuals">
+          <div class="question2-demo" aria-label="Animated collision: A approaches stationary B, then A slows and B moves away faster">
+            <canvas id="question2-canvas"></canvas>
+          </div>
+          <div class="xt-graph" aria-label="Position-time graph showing A and B in the same coordinate system; both meet at 0.2 seconds">
+            <canvas id="xt-canvas"></canvas>
+          </div>
+        </div>
+        <p class="quiz-prompt">On a smooth horizontal surface, ball A has mass <i>m</i><sub>1</sub> = 2 kg and ball B has mass <i>m</i><sub>2</sub> = 1 kg. Before the collision, A moves right at 3 m/s and B is at rest. At <i>t</i> = 0.2 s, A changes to 1 m/s and B changes to 5 m/s.</p>
+        <p class="quiz-question">Is this modified data set physically possible?</p>
+        <div class="quiz-options" role="group" aria-label="Answer choices for question 2">
+          <button class="quiz-option" data-answer="possible-energy"><span>A</span>Yes — kinetic energy may increase.</button>
+          <button class="quiz-option" data-answer="possible-direction"><span>B</span>Yes — both balls move to the right.</button>
+          <button class="quiz-option" data-answer="momentum" data-correct="true"><span>C</span>No — total momentum changes from 6 to 7 kg·m/s.</button>
+          <button class="quiz-option" data-answer="rest"><span>D</span>No — ball B must remain at rest.</button>
+        </div>
+        <div class="quiz-feedback" id="quiz-feedback-2" aria-live="polite" hidden></div>
+        <button class="quiz-next" data-open="collision-question-3">Next Question →</button>
+      </div>
+    </section>
+
+    <section id="collision-question-3" class="quiz-page view">
+      <div class="quiz-wordmark"><span>Law of Physics</span></div>
+      <button class="quiz-back" data-back>Back</button>
+      <div class="quiz-shell">
+        <p class="quiz-kicker">Repeated Collisions · Question 03</p>
+        <h2>Two balls between two walls.</h2>
+        <div class="walls-demo" aria-label="Animated elastic collisions between two equal-mass balls and two fixed walls">
+          <canvas id="walls-canvas"></canvas>
+        </div>
+        <p class="quiz-prompt">Two fixed walls are separated by a distance <i>L</i> on a smooth horizontal surface. Two equal-mass balls A and B, with <i>m</i><sub>A</sub> = <i>m</i><sub>B</sub> = <i>m</i>, lie between them. Initially, A starts at the left wall and moves right with speed <i>v</i><sub>0</sub>. B is at rest at <i>x</i> = <i>L</i>/2. Every collision is perfectly elastic.</p>
+
+        <div class="subquestions">
+          <article class="subquestion" data-answer-text="vA = 0, vB = v₀" data-explanation="Equal masses exchange velocities in a one-dimensional elastic collision.">
+            <p class="subquestion-title"><span>(1)</span> What are the velocities immediately after the first A–B collision?</p>
+            <div class="quiz-options" role="group" aria-label="Question 3 part 1 choices">
+              <button class="quiz-option" data-correct="true"><span>A</span><i>v</i><sub>A</sub> = 0, <i>v</i><sub>B</sub> = <i>v</i><sub>0</sub></button>
+              <button class="quiz-option"><span>B</span><i>v</i><sub>A</sub> = <i>v</i><sub>0</sub>/2, <i>v</i><sub>B</sub> = <i>v</i><sub>0</sub>/2</button>
+              <button class="quiz-option"><span>C</span><i>v</i><sub>A</sub> = −<i>v</i><sub>0</sub>, <i>v</i><sub>B</sub> = 0</button>
+              <button class="quiz-option"><span>D</span><i>v</i><sub>A</sub> = <i>v</i><sub>0</sub>, <i>v</i><sub>B</sub> = 0</button>
+            </div>
+            <div class="quiz-feedback" aria-live="polite" hidden></div>
+          </article>
+
+          <article class="subquestion" data-answer-text="t = L / v₀" data-explanation="A takes L/(2v₀) to reach B, then B takes another L/(2v₀) to reach the right wall.">
+            <p class="subquestion-title"><span>(2)</span> How much time passes before B first collides with the right wall?</p>
+            <div class="quiz-options" role="group" aria-label="Question 3 part 2 choices">
+              <button class="quiz-option"><span>A</span><i>L</i> / (2<i>v</i><sub>0</sub>)</button>
+              <button class="quiz-option" data-correct="true"><span>B</span><i>L</i> / <i>v</i><sub>0</sub></button>
+              <button class="quiz-option"><span>C</span>3<i>L</i> / (2<i>v</i><sub>0</sub>)</button>
+              <button class="quiz-option"><span>D</span>2<i>L</i> / <i>v</i><sub>0</sub></button>
+            </div>
+            <div class="quiz-feedback" aria-live="polite" hidden></div>
+          </article>
+
+          <article class="subquestion" data-answer-text="Yes, at x = L / 2" data-explanation="B reflects from the right wall and returns to the stationary A at the midpoint.">
+            <p class="subquestion-title"><span>(3)</span> After reflecting from the right wall, will B collide with A again? If so, where?</p>
+            <div class="quiz-options" role="group" aria-label="Question 3 part 3 choices">
+              <button class="quiz-option"><span>A</span>No — B remains at the right wall.</button>
+              <button class="quiz-option"><span>B</span>Yes — at <i>x</i> = <i>L</i>/4.</button>
+              <button class="quiz-option" data-correct="true"><span>C</span>Yes — at <i>x</i> = <i>L</i>/2.</button>
+              <button class="quiz-option"><span>D</span>Yes — at <i>x</i> = 3<i>L</i>/4.</button>
+            </div>
+            <div class="quiz-feedback" aria-live="polite" hidden></div>
+          </article>
+
+          <article class="subquestion" data-answer-text="L / 2" data-explanation="A travels from the left wall to the midpoint, then remains there until the second A–B collision.">
+            <p class="subquestion-title"><span>(4)</span> From the start until the second A–B collision, what total distance does A travel?</p>
+            <div class="quiz-options" role="group" aria-label="Question 3 part 4 choices">
+              <button class="quiz-option"><span>A</span><i>L</i>/4</button>
+              <button class="quiz-option" data-correct="true"><span>B</span><i>L</i>/2</button>
+              <button class="quiz-option"><span>C</span><i>L</i></button>
+              <button class="quiz-option"><span>D</span>3<i>L</i>/2</button>
+            </div>
+            <div class="quiz-feedback" aria-live="polite" hidden></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="momentum" class="lab view">
+      <div class="lab-head">
+        <button class="back-btn" data-back>← BACK</button>
+        <div><p class="eyebrow">CHAMBER 01</p><h2>Momentum Protocol</h2></div>
+        <div class="mission-badge">MISSION 1 / 2</div>
+      </div>
+      <div class="lab-grid">
+        <div class="sim-panel">
+          <div class="panel-title"><span>COLLISION TABLE</span><small id="momentum-state">READY</small></div>
+          <canvas id="momentum-canvas" width="900" height="430" aria-label="Momentum collision simulation"></canvas>
+          <div class="data-strip">
+            <div><small>MOMENTUM BEFORE</small><b id="p-before">—</b></div>
+            <div><small>MOMENTUM AFTER</small><b id="p-after">—</b></div>
+            <div><small>ERROR</small><b id="p-error">—</b></div>
+          </div>
+        </div>
+        <aside class="control-panel">
+          <div class="challenge"><span>OBJECTIVE</span><h3>Predict the shared velocity after a perfectly inelastic collision.</h3></div>
+          <label>Mass of A <output id="m1-out">2.0 kg</output><input id="m1" type="range" min="1" max="5" step="0.5" value="2"></label>
+          <label>Velocity of A <output id="v1-out">4.0 m/s</output><input id="v1" type="range" min="1" max="7" step="0.5" value="4"></label>
+          <label>Mass of B <output id="m2-out">3.0 kg</output><input id="m2" type="range" min="1" max="5" step="0.5" value="3"></label>
+          <label>Velocity of B <output id="v2-out">−1.0 m/s</output><input id="v2" type="range" min="-5" max="1" step="0.5" value="-1"></label>
+          <label class="prediction">YOUR PREDICTION <span>m/s</span><input id="prediction" type="number" step="0.1" placeholder="e.g. 1.0"></label>
+          <button class="launch-btn" id="launch-momentum">LOCK & LAUNCH <span>↗</span></button>
+          <div class="result-card" id="momentum-result" hidden></div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="electromagnet" class="lab view">
+      <div class="lab-head">
+        <button class="back-btn" data-back>← BACK</button>
+        <div><p class="eyebrow">CHAMBER 02</p><h2>Electromagnetic Orbit</h2></div>
+        <div class="mission-badge purple">MISSION 2 / 2</div>
+      </div>
+      <div class="lab-grid">
+        <div class="sim-panel electro">
+          <div class="panel-title"><span>PARTICLE CHAMBER</span><small id="em-state">FIELD STABLE</small></div>
+          <canvas id="em-canvas" width="900" height="430" aria-label="Charged particle in a magnetic field"></canvas>
+          <div class="data-strip">
+            <div><small>LORENTZ FORCE</small><b id="force-val">—</b></div>
+            <div><small>ORBIT RADIUS</small><b id="radius-val">—</b></div>
+            <div><small>DEFLECTION</small><b id="direction-val">—</b></div>
+          </div>
+        </div>
+        <aside class="control-panel">
+          <div class="challenge purple"><span>OBJECTIVE</span><h3>Guide the positive charge through the target ring.</h3></div>
+          <label>Particle velocity <output id="speed-out">5.0 × 10⁶ m/s</output><input id="speed" type="range" min="2" max="8" step="0.5" value="5"></label>
+          <label>Magnetic flux density <output id="field-out">0.60 T</output><input id="field" type="range" min="0.2" max="1" step="0.1" value="0.6"></label>
+          <div class="seg-label">FIELD DIRECTION</div>
+          <div class="segmented">
+            <button class="field-choice active" data-field="in">× INTO SCREEN</button>
+            <button class="field-choice" data-field="out">• OUT OF SCREEN</button>
+          </div>
+          <button class="launch-btn purple" id="launch-em">RELEASE PARTICLE <span>↗</span></button>
+          <div class="result-card" id="em-result" hidden></div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <div class="reward-overlay" id="reward-overlay" role="dialog" aria-modal="true" aria-labelledby="reward-title" hidden>
+    <div class="confetti" id="confetti" aria-hidden="true"></div>
+    <div class="reward-card">
+      <div class="reward-kicker">Mascot Collected</div>
+      <img class="reward-mascot" id="reward-mascot" src="" alt="" />
+      <h2 id="reward-title">A new companion joined you.</h2>
+      <button id="reward-close">Continue</button>
+    </div>
+  </div>
+
+  <dialog id="how-dialog">
+    <button class="dialog-close" aria-label="Close">×</button>
+    <p class="eyebrow">MISSION BRIEFING</p>
+    <h2>Play like a physicist.</h2>
+    <ol><li><b>ADJUST</b><span>Change mass, velocity, or field.</span></li><li><b>PREDICT</b><span>Commit before the experiment.</span></li><li><b>OBSERVE</b><span>Read the path, data, and law.</span></li></ol>
+  </dialog>
+  <script src="app.js?v=concept-chapters-10"></script>
+</body>
+</html>
